@@ -1,11 +1,16 @@
-# My Personal Project
+# Todo list
 
-## A subtitle
+## Java Project - Krish Thukral
 
-A *bulleted* list:
-- item 1
-- item 2
-- item 3
+What will the application do?  
+The application is a TODO list so users are able 
+to schedule out their tasks and can see them laid
+out in front of them in a visually pleasing way.
 
-An example of text with **bold** and *italic* fonts.  Note that the IntelliJ markdown previewer doesn't seem to render 
-the bold and italic fonts correctly but they will appear correctly on GitHub.
+Who will use it?
+People with chronic procrastination or want to 
+schedule out their time better or organize their life.
+
+Why is this project of interest to you?
+This project is of interest to me because I am one of 
+those people.
