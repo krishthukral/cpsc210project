@@ -55,7 +55,7 @@ public class TodoList {
     }*/
 
     // EFFECTS: Goes through the list and puts them in Completed and Incompleted lists respectively
-    public void completedList() {
+    /*public void completedList() {
         for (int i = 0; i < taskList.size(); i++) {
             if (taskList.get(i).getIsCompleted() == true) {
                 completed.add(taskList.get(i));
@@ -64,7 +64,8 @@ public class TodoList {
                 incomplete.add(taskList.get(i));
             }
         }
-    }
+    }*/
+
 
     /*//EFFECTS: Switches isCompleted to true if user inputs it to be true
     public void markComplete(String str){

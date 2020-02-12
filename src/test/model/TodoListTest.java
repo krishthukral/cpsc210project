@@ -15,8 +15,8 @@ public class TodoListTest {
     @BeforeEach
     void runBefore() {
         exercise = new Task("exercise");
-        homework = new Task ("homework" );
-        artProject = new Task ("Art");
+        homework = new Task("homework");
+        artProject = new Task("Art");
 
         lists = new TodoList();
     }
@@ -24,7 +24,7 @@ public class TodoListTest {
     ////
     @Test
     void testConstructor() {
-        assertEquals("exercise", exercise.getDescription() );
+        assertEquals("exercise", exercise.getDescription());
         assertEquals(false, homework.getIsCompleted());
 
     }
@@ -49,10 +49,18 @@ public class TodoListTest {
         lists.addTask(artProject.getDescription());
         assertEquals(3, lists.sizeOfList());
         assertEquals(3, lists.sizeOfList());
-        assertEquals(artProject.getDescription(),lists.getTask(2).getDescription());
+        assertEquals(artProject.getDescription(), lists.getTask(2).getDescription());
     }
 
+   /* @Test
+    public void testCompletedList() {
+        lists.addTask(exercise.getDescription());
+        lists.addTask(homework.getDescription());
+        lists.addTask(artProject.getDescription());
+        lists.completedList();
 
+        assertEquals(3, lists.sizeOfList());
+    }*/
 
 
 }
