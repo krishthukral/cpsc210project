@@ -59,7 +59,7 @@ public class TodoApp {
                 processCommand(command);
             }
         }
-        System.out.println("\nGoodbye!");
+        System.out.println("\nGOODBYE");
     }
 
     // MODIFIES: this
@@ -130,8 +130,7 @@ public class TodoApp {
         System.out.println("\n Hi" + " " + first + " " + last + " " + "select from:");
         System.out.println("\ta -> to add a task");
         System.out.println("\tr -> to remove a task");
-        System.out.println("\tn -> number of completed items");
-        System.out.println("\tm -> mark task complete");
+        System.out.println("\tn -> number of items");
         System.out.println("\tp -> print to screen");
         System.out.println("\tq -> quit");
     }
