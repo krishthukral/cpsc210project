@@ -67,5 +67,14 @@ public class TodoListTest {
         assertEquals(3, lists.sizeOfList());
     }*/
 
+    @Test
+    public void testMarkComplete() {
+        lists.addTask(exercise.getDescription());
+        lists.addTask(homework.getDescription());
+        lists.addTask(artProject.getDescription());
+        lists.markComplete(artProject.getDescription());
 
+        assertEquals(true, lists.getTask(2).getIsCompleted());
+
+    }
 }

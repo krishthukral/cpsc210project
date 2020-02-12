@@ -1,7 +1,6 @@
 package model;
 
 
-
 import java.util.ArrayList;
 import java.util.*;
 
@@ -39,7 +38,6 @@ public class TodoList {
     }
 
 
-
     // EFFECTS: To String
     //
     //
@@ -67,15 +65,16 @@ public class TodoList {
     }*/
 
 
-    /*//EFFECTS: Switches isCompleted to true if user inputs it to be true
-    public void markComplete(String str){
+    //MODIFIES: this
+    //EFFECTS: Switches isCompleted to true if user inputs it
+    public void markComplete(String str) {
         for (int i = 0; i < taskList.size(); i++) {
             if (str.equals(taskList.get(i).getDescription())) {
-                //
+                taskList.get(i).completeTask();
             }
         }
 
-    }*/
+    }
 
 
     // EFFECTS: Returns the size of the list
