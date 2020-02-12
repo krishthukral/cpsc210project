@@ -40,6 +40,11 @@ public class TodoListTest {
         lists.addTask(exercise.getDescription());
         lists.deleteTask(exercise.getDescription());
         assertEquals(0, lists.sizeOfList());
+        lists.addTask(exercise.getDescription());
+        lists.addTask(artProject.getDescription());
+        lists.addTask(homework.getDescription());
+        lists.deleteTask(artProject.getDescription());
+        assertEquals(2, lists.sizeOfList());
     }
 
     @Test
