@@ -131,6 +131,7 @@ public class TodoApp {
         System.out.println("\ta -> to add a task");
         System.out.println("\tr -> to remove a task");
         System.out.println("\tn -> number of completed items");
+        System.out.println("\tm -> mark task complete");
         System.out.println("\tp -> print to screen");
         System.out.println("\tq -> quit");
     }
