@@ -2,6 +2,8 @@
 
 ## Java Project - Krish Thukral
 
+CITATION: TELLER APP HELPED ME IMPLEMENT CONSOLE UI
+
 What will the application do?  
 The application is a TODO list so users are able 
 to schedule out their tasks and can see them laid
@@ -34,3 +36,5 @@ tasks assigned to myself on a daily basis.
 As a user, I want to be able to use a timer within the application so it can help visually
 keep me on track- Pomodoro technique
 As a user, I want to be notified if I do not complete the task in the allotted time.
+
+

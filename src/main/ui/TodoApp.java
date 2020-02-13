@@ -39,6 +39,7 @@ public class TodoApp {
 
     }
 
+    //TELLER APP CITATION
     // MODIFIES: this
     // EFFECTS: processes user input
     private void runTodoApp() {
@@ -62,6 +63,7 @@ public class TodoApp {
         System.out.println("\nGOODBYE");
     }
 
+    //TELLER APP CITATION
     // MODIFIES: this
     // EFFECTS: processes user command
     private void processCommand(String command) {
