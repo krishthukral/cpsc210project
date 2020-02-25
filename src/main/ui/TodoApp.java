@@ -1,6 +1,7 @@
 package ui;
 
 import model.*;
+import persistence.*;
 
 import java.util.*;
 import java.util.Scanner;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class TodoApp {
+    private static final String TodoLists_FILE = "./data/todolists.txt";
     private TodoList list = new TodoList();
     private String first;
     private String last;
@@ -77,6 +79,8 @@ public class TodoApp {
             //doMarkComplete();
         } else if (command.equals("n")) {
             doCount();
+        } else if (command.equals("s")) {
+            saveTodoList();
         } else {
             System.out.println("Selection not valid...");
         }
@@ -127,6 +131,21 @@ public class TodoApp {
 
     }
 
+    // EFFECTS: saves state of chequing and savings accounts to TodoList_FILE
+    private void saveTodoList() {
+        try {
+            Writer writer = new Writer(new File(TodoLists_FILE));
+            writer.write(list);
+            writer.close();
+            System.out.println("Accounts saved to file " + TodoLists_FILE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to save accounts to " + TodoLists_FILE);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            // this is due to a programming error
+        }
+    }
+
     // EFFECTS: displays menu of options to user
     private void displayMenu() {
         System.out.println("\n Hi" + " " + first + " " + last + " " + "select from:");
@@ -134,6 +153,7 @@ public class TodoApp {
         System.out.println("\tr -> to remove a task");
         System.out.println("\tn -> number of items");
         System.out.println("\tp -> print to screen");
+        System.out.println("\ts -> save accounts to file");
         System.out.println("\tq -> quit");
     }
 

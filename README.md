@@ -23,6 +23,8 @@ As a user, I want to be able to add a task to my to-do list
 As a user, I want to be able to view the list of tasks on my to-do list
 As a user, I want to be able to Login and see my name displayed on the todo list
 As a user, I want to be able to delete a task from my to-do-list
+As a user, I want to be able to save my to-do list to file
+As a user, I want to be able to optionally load my to-do list from file when the program starts
 
 As a user, I want to be able to see the number of incomplete and number of completed tasks 
 on my to-do list
