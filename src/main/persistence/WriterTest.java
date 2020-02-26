@@ -19,12 +19,12 @@
 //class WriterTest {
 //    private static final String TEST_FILE = "./data/testAccounts.txt";
 //    private Writer testWriter;
-//    private Account chequing;
-//    private Account savings;
+//    private TodoList list;
+//
 //
 //    @BeforeEach
 //    void runBefore() throws FileNotFoundException, UnsupportedEncodingException {
-//        testWriter = new Writer(new File(TEST_FILE));
+//        testWriter = new Writer());
 //        chequing = new Account("Mae", 123.56);
 //        savings = new Account("Jo", 435.23);
 //    }
