@@ -1,28 +1,40 @@
 package persistence;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.*;
 
-public class Writer {
-    private  PrintWriter printWriter;
+import model.*;
 
-    // EFFECTS: constructs a writer that will write data to file
-    public Writer(File file) throws FileNotFoundException, UnsupportedEncodingException {
-        printWriter = new PrintWriter(file, "UTF-8");
-    }
+public class Writer implements Serializable {
 
-    // MODIFIES: this
-    // EFFECTS: writes saveable to file
-    public void write(Saveable saveable) {
-        saveable.save(printWriter);
-    }
 
-    // MODIFIES: this
-    // EFFECTS: close print writer
-    // NOTE: you MUST call this method when you are done writing data!
-    public void close() {
-        printWriter.close();
+    public static void main(String[] args) {
+
+        try {
+            Task t = new Task("gay");
+            TodoList l = new TodoList();
+            l.addTask("cow");
+            l.addTask("chicken");
+            l.addTask("pig");
+
+
+            FileOutputStream fileOut =
+                    new FileOutputStream("./data/myFile.txt");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+
+            out.writeObject(l);
+
+            //
+            out.close();
+            fileOut.close();
+
+            System.out.printf("Serialized data is saved in /tmp/employee.ser");
+        } catch (IOException i) {
+            i.printStackTrace();
+        }
+
     }
 }
+

@@ -1,22 +1,18 @@
 package ui;
 
 import model.*;
-import persistence.*;
 
+import java.io.*;
 import java.util.*;
 import java.util.Scanner;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.Scanner;
 
 public class TodoApp {
-    private static final String TodoLists_FILE = "./data/todolists.txt";
     private TodoList list = new TodoList();
     private String first;
     private String last;
+    private String savedTask;
     private Scanner input;
 
     public TodoApp() {
@@ -50,6 +46,7 @@ public class TodoApp {
         input = new Scanner(System.in);
         introduction();
 
+        doLoad();
         while (keepGoing) {
 
             displayMenu();
@@ -80,7 +77,7 @@ public class TodoApp {
         } else if (command.equals("n")) {
             doCount();
         } else if (command.equals("s")) {
-            saveTodoList();
+            doSave();
         } else {
             System.out.println("Selection not valid...");
         }
@@ -96,9 +93,11 @@ public class TodoApp {
 
         System.out.println("What is your task's name?");
         String task = input.next();
+        savedTask = task;
         list.addTask(task);
 
     }
+
 
     private void doRemoveTask() {
         input = new Scanner(System.in);
@@ -131,20 +130,62 @@ public class TodoApp {
 
     }
 
-    // EFFECTS: saves state of chequing and savings accounts to TodoList_FILE
-    private void saveTodoList() {
+    private void doSave() {
         try {
-            Writer writer = new Writer(new File(TodoLists_FILE));
-            writer.write(list);
-            writer.close();
-            System.out.println("Accounts saved to file " + TodoLists_FILE);
-        } catch (FileNotFoundException e) {
-            System.out.println("Unable to save accounts to " + TodoLists_FILE);
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-            // this is due to a programming error
+//            Task t = new Task("gay");
+//            TodoList l = new TodoList();
+//            l.addTask("cow");
+//            l.addTask("chicken");
+//            l.addTask("pig");
+
+
+            FileOutputStream fileOut =
+                    new FileOutputStream("./data/myFile.txt");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+
+            out.writeObject(list);
+
+            //
+            out.close();
+            fileOut.close();
+
+            System.out.printf("Serialized data is saved in /tmp/employee.ser");
+        } catch (IOException i) {
+            i.printStackTrace();
         }
+
     }
+
+
+
+    private void doLoad() {
+        Task mas;
+        String str = "";
+        try {
+            FileInputStream fileIn = new FileInputStream("./data/myFile.txt");
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+
+            TodoList l1 = (TodoList) in.readObject();
+            for (int i = 0; i < l1.sizeOfList(); i++) {
+                list.addTask(l1.getTask(i).getDescription());
+            }
+
+            in.close();
+            fileIn.close();
+        } catch (IOException i) {
+            i.printStackTrace();
+            return;
+        } catch (ClassNotFoundException c) {
+            System.out.println("Task class not found");
+            c.printStackTrace();
+            return;
+        }
+
+
+        //System.out.println("Task: " + mas.getDescription());
+
+    }
+
 
     // EFFECTS: displays menu of options to user
     private void displayMenu() {
@@ -153,8 +194,9 @@ public class TodoApp {
         System.out.println("\tr -> to remove a task");
         System.out.println("\tn -> number of items");
         System.out.println("\tp -> print to screen");
-        System.out.println("\ts -> save accounts to file");
+        System.out.println("\ts -> save todolist");
         System.out.println("\tq -> quit");
+
     }
 
 

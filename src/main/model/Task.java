@@ -1,6 +1,8 @@
 package model;
 
-public class Task {
+import java.io.Serializable;
+
+public class Task implements Serializable {
     private String description;
     //private int deadline;
     private boolean isCompleted;

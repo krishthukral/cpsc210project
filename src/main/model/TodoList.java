@@ -1,10 +1,13 @@
 package model;
 
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.*;
 
-public class TodoList {
+public class TodoList implements java.io.Serializable {
     private ArrayList<Task> taskList;
     private ArrayList<Task> completed;
     private ArrayList<Task> incomplete;
@@ -36,6 +39,10 @@ public class TodoList {
 
         // stub
     }
+
+
+
+
 
 
     // EFFECTS: To String
