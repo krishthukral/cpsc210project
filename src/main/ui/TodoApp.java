@@ -108,6 +108,7 @@ public class TodoApp {
     }
 
     //
+    //
     private void doViewList() {
         for (int i = 0; i < list.sizeOfList(); i++) {
             System.out.println(i + 1 + ". " + list.getTask(i).getDescription());
@@ -157,7 +158,6 @@ public class TodoApp {
         }
 
     }
-
 
 
     private void doLoad() {
