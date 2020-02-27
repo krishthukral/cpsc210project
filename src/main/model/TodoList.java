@@ -7,6 +7,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.*;
 
+// This is a list of tasks in order so the user is able to see what to do for the day
 public class TodoList implements java.io.Serializable {
     private ArrayList<Task> taskList;
     private ArrayList<Task> completed;

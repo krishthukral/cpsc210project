@@ -8,6 +8,7 @@ import java.util.Scanner;
 import java.util.List;
 import java.util.Scanner;
 
+// This class is mainly for interactions with the user
 public class TodoApp {
     private TodoList list = new TodoList();
     private String first;
@@ -26,6 +27,7 @@ public class TodoApp {
 
     }
 
+    // EFFECTS: introduces user to the program
     private void introduction() {
         input = new Scanner(System.in);
 
@@ -98,7 +100,8 @@ public class TodoApp {
 
     }
 
-
+    // MODIFIES: this
+    //  EFFECTS: Removes desired task base on selection
     private void doRemoveTask() {
         input = new Scanner(System.in);
 
@@ -107,14 +110,15 @@ public class TodoApp {
         list.deleteTask(task);
     }
 
-    //
-    //
+
+    // EFFECTS: Lets user see the entire todo list
     private void doViewList() {
         for (int i = 0; i < list.sizeOfList(); i++) {
             System.out.println(i + 1 + ". " + list.getTask(i).getDescription());
         }
     }
 
+    // EFFECTS: Lets user able to see the amount of items on todo list
     private void doCount() {
         int count = 0;
         for (int i = 0; i < list.sizeOfList(); i++) {
@@ -123,6 +127,7 @@ public class TodoApp {
         System.out.println(count);
     }
 
+    //EFFECTS: ends up marking and able to see item in another list of completed items
     private void doMarkComplete() {
         input = new Scanner(System.in);
 
@@ -159,7 +164,7 @@ public class TodoApp {
 
     }
 
-
+    // Effects: Lets user load up previous state in file
     private void doLoad() {
         Task mas;
         String str = "";
