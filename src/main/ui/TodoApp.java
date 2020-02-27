@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 // This class is mainly for interactions with the user
 public class TodoApp {
-    private TodoList list = new TodoList();
+    private TodoList list;
     private String first;
     private String last;
     private String savedTask;
@@ -23,7 +23,7 @@ public class TodoApp {
     // MODIFIES: this
     // EFFECTS: initializes accounts
     private void init() {
-
+        list = new TodoList();
 
     }
 
@@ -43,10 +43,12 @@ public class TodoApp {
     // MODIFIES: this
     // EFFECTS: processes user input
     private void runTodoApp() {
+        init();
         boolean keepGoing = true;
         String command = null;
         input = new Scanner(System.in);
         introduction();
+
 
         doLoad();
         while (keepGoing) {
@@ -80,9 +82,15 @@ public class TodoApp {
             doCount();
         } else if (command.equals("s")) {
             doSave();
+        } else if (command.equals("c")) {
+            doClear();
         } else {
             System.out.println("Selection not valid...");
         }
+    }
+
+    private void doClear() {
+        init();
     }
 
     //boolean keepGoing = true;
@@ -202,6 +210,7 @@ public class TodoApp {
         System.out.println("\tn -> number of items");
         System.out.println("\tp -> print to screen");
         System.out.println("\ts -> save todolist");
+        System.out.println("\tc -> clear todolist");
         System.out.println("\tq -> quit");
 
     }
