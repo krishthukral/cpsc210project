@@ -130,6 +130,8 @@ public class TodoApp {
 
     }
 
+
+    // EFFECTS: saves state of todolist to a file
     private void doSave() {
         try {
 //            Task t = new Task("gay");
