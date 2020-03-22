@@ -1,12 +1,17 @@
 package ui;
 
 import model.*;
+import ui.Guiv3;
 
 import java.io.*;
 import java.util.*;
 import java.util.Scanner;
 import java.util.List;
 import java.util.Scanner;
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import java.awt.*;
+import java.awt.event.ActionListener;
 
 // This class is mainly for interactions with the user
 public class TodoApp {
@@ -16,6 +21,7 @@ public class TodoApp {
     private String savedTask;
     private Scanner input;
 
+
     public TodoApp() {
         runTodoApp();
     }
@@ -23,12 +29,17 @@ public class TodoApp {
     // MODIFIES: this
     // EFFECTS: initializes accounts
     private void init() {
+        Guiv3 g = new Guiv3();
+
         list = new TodoList();
+
 
     }
 
     // EFFECTS: introduces user to the program
     private void introduction() {
+
+
         input = new Scanner(System.in);
 
         System.out.println("Hi what is your First Name?");
@@ -148,13 +159,6 @@ public class TodoApp {
     // EFFECTS: saves state of todolist to a file
     private void doSave() {
         try {
-//            Task t = new Task("gay");
-//            TodoList l = new TodoList();
-//            l.addTask("cow");
-//            l.addTask("chicken");
-//            l.addTask("pig");
-
-
             FileOutputStream fileOut =
                     new FileOutputStream("./data/myFile.txt");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -217,3 +221,4 @@ public class TodoApp {
 
 
 }
+
