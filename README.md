@@ -3,6 +3,9 @@
 ## Java Project - Krish Thukral
 
 CITATION: TELLER APP HELPED ME IMPLEMENT CONSOLE UI
+CITATION: LIST DEMO HELPED ME CREATE GUI
+https://docs.oracle.com/javase/tutorial/displayCode.html?code=https://docs.oracle.com/
+javase/tutorial/uiswing/examples/components/ListDemoProject/src/components/ListDemo.java
 
 What will the application do?  
 The application is a TODO list so users are able 

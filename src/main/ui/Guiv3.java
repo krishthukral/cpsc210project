@@ -21,6 +21,7 @@ import java.io.*;
 
 import sun.audio.*;
 
+// This class makes the entire GUI for the TODO App
 public class Guiv3 extends JPanel implements ListSelectionListener {
     private JList list;
     private DefaultListModel listModel;
@@ -35,14 +36,14 @@ public class Guiv3 extends JPanel implements ListSelectionListener {
     private JButton hireButton;
     private HireListener hireListener;
 
-    //
+    //EFFECTS: Constructs the entire gui
     public Guiv3() {
         super(new BorderLayout());
         todoList = new TodoList();
         listModel = new DefaultListModel();
         doLoad();
 
-        //Create the list and put it in a scroll pane.
+        //EFFECTS: Create the list and put it in a scroll pane.
         list = new JList(listModel);
         list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         list.setSelectedIndex(0);
@@ -66,6 +67,7 @@ public class Guiv3 extends JPanel implements ListSelectionListener {
 
     }
 
+    //EFFECTS: This initalizes all the buttons
     private void initButton() {
         hireButton = new JButton(hireString);
         hireListener = new HireListener(hireButton);
@@ -83,6 +85,7 @@ public class Guiv3 extends JPanel implements ListSelectionListener {
         clearButton.addActionListener(new ClearListener());
     }
 
+    //EFFECTS: This initalizes everything onto the JPane
     private void initPane() {
         //Create a panel that uses BoxLayout.
         JPanel buttonPane = new JPanel();
@@ -101,6 +104,7 @@ public class Guiv3 extends JPanel implements ListSelectionListener {
         add(buttonPane, BorderLayout.PAGE_END);
     }
 
+    //EFFECTS: This actionlistener is removes a task from a list
     class FireListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             //This method can be called only if
@@ -127,6 +131,7 @@ public class Guiv3 extends JPanel implements ListSelectionListener {
         }
     }
 
+    //EFFECTS: This clears the list when clicked
     class ClearListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             //This method can be called only if
@@ -155,6 +160,7 @@ public class Guiv3 extends JPanel implements ListSelectionListener {
         }
     }
 
+    //EFFECTS: This saves the list when clicked
     class SaveListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             //This method can be called only if
@@ -181,7 +187,7 @@ public class Guiv3 extends JPanel implements ListSelectionListener {
     }
 
 
-    //This listener is shared by the text field and the hire button.
+    //EFFECTS: This listener is shared by the text field and the hire button.
     class HireListener implements ActionListener, DocumentListener {
         private boolean alreadyEnabled = false;
         private JButton button;
@@ -349,6 +355,7 @@ public class Guiv3 extends JPanel implements ListSelectionListener {
         list.ensureIndexIsVisible(index);
     }
 
+    //EFFECTS This is a way to play the sound
     public static synchronized void playSound(final String url) {
         new Thread(new Runnable() {
             // The wrapper thread is unnecessary, unless it blocks on the
