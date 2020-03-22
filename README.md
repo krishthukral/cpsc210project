@@ -39,4 +39,11 @@ As a user, I want to be able to use a timer within the application so it can hel
 keep me on track- Pomodoro technique
 As a user, I want to be notified if I do not complete the task in the allotted time.
 
-
+## Instructions for Grader
+You can generate the first required event by pressing the add button to add a task to a list of tasks
+You can generate the second required event by pressing the remove button to remove a task from a task list
+You can clear the list by pressing the clear button
+You can trigger the audio component by pressing the add button and produce a coin sound
+You can trigger another sound by pressing the remove button
+You can save all newly added items to the save file
+When the user loads the file 
