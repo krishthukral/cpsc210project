@@ -43,6 +43,10 @@ keep me on track- Pomodoro technique
 As a user, I want to be notified if I do not complete the task in the allotted time.
 
 ## Instructions for Grader
+Cannot add duplicate items
+To run application right click Guiv3 and click run application
+The save button only saves the most recent tasks added
+The next time loads only loads the previously added tasks
 You can generate the first required event by pressing the add button to add a task to a list of tasks
 You can generate the second required event by pressing the remove button to remove a task from a task list
 You can clear the list by pressing the clear button

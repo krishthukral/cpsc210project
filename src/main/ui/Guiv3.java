@@ -355,24 +355,24 @@ public class Guiv3 extends JPanel implements ListSelectionListener {
         list.ensureIndexIsVisible(index);
     }
 
-    //EFFECTS This is a way to play the sound
-    public static synchronized void playSound(final String url) {
-        new Thread(new Runnable() {
-            // The wrapper thread is unnecessary, unless it blocks on the
-            // Clip finishing; see comments.
-            public void run() {
-                try {
-                    Clip clip = AudioSystem.getClip();
-                    AudioInputStream inputStream = AudioSystem.getAudioInputStream(
-                            Main.class.getResourceAsStream("/path/to/sounds/" + url));
-                    clip.open(inputStream);
-                    clip.start();
-                } catch (Exception e) {
-                    System.err.println(e.getMessage());
-                }
-            }
-        }).start();
-    }
+//    //EFFECTS This is a way to play the sound
+//    public static synchronized void playSound(final String url) {
+//        new Thread(new Runnable() {
+//            // The wrapper thread is unnecessary, unless it blocks on the
+//            // Clip finishing; see comments.
+//            public void run() {
+//                try {
+//                    Clip clip = AudioSystem.getClip();
+//                    AudioInputStream inputStream = AudioSystem.getAudioInputStream(
+//                            Main.class.getResourceAsStream("/path/to/sounds/" + url));
+//                    clip.open(inputStream);
+//                    clip.start();
+//                } catch (Exception e) {
+//                    System.err.println(e.getMessage());
+//                }
+//            }
+//        }).start();
+//    }
 
     public static void main(String[] args) {
         //Schedule a job for the event-dispatching thread:

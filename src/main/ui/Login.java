@@ -1,5 +1,7 @@
 //package ui;
 //
+//import javafx.scene.text.Text;
+//
 //import javax.swing.JFrame;
 //import javax.swing.JLabel;
 //import javax.swing.JPanel;
@@ -8,6 +10,10 @@
 //import java.awt.event.ActionListener;
 //
 //public class Login implements ActionListener {
+//    private static JLabel success;
+//    private static JTextField userText;
+//    private static JPasswordField passwordText;
+//
 //
 //    public static void main(String[] args) {
 //        JPanel panel = new JPanel();
@@ -27,25 +33,25 @@
 //        panel.add(password);
 //
 //
-//        JTextField userText = new JTextField();
+//        userText = new JTextField();
 //        userText.setBounds(100, 20, 165, 25);
 //        panel.add(userText);
 //        userText.requestFocus();
 //
 //
-//
-//        JPasswordField passwordText = new JPasswordField();
+//        passwordText = new JPasswordField();
 //        passwordText.setBounds(100, 50, 165, 25);
 //        panel.add(passwordText);
 //        passwordText.requestFocus();
 //
 //        JButton button = new JButton("Login");
-//        button.setBounds(10,80,80,25);
+//        button.setBounds(10, 80, 80, 25);
+//        button.addActionListener(new Login());
 //        panel.add(button);
 //        button.requestFocus();
 //
-//        JLabel success = new JLabel("");
-//        success.setBounds(10,110,300,25);
+//        success = new JLabel("");
+//        success.setBounds(10, 110, 300, 25);
 //        panel.add(success);
 //        success.requestFocus();
 //        frame.setVisible(true);
@@ -57,9 +63,10 @@
 //
 //        String user = userText.getText();
 //        String password = passwordText.getText();
+//        if (user.equals("a") && password.equals("b")) {
+//            success.setText("Login successful!");
+//            Guiv3 g = new Guiv3();
 //
-//        if(user.equals("Krish") && password.equals("1")){
-//            success.setext("Login successful!");
 //        }
 //    }
 //}
