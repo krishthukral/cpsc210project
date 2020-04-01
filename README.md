@@ -54,3 +54,9 @@ You can trigger the audio component by pressing the add button and produce a coi
 You can trigger another sound by pressing the remove button
 You can save all newly added items to the save file
 When the user loads the file 
+
+
+## Task 2 Phase 4
+ROBUST:
+Added exception to the deletetask method so it handles the case if the user removes something when it is already
+empty in the todoList in the model package. I made two tests that pass called testException and testNoException.

@@ -1,5 +1,6 @@
 package ui;
 
+import exception.EmptyException;
 import model.*;
 import ui.Guiv3;
 
@@ -22,7 +23,7 @@ public class TodoApp {
     private Scanner input;
 
 
-    public TodoApp() {
+    public TodoApp() throws EmptyException {
         runTodoApp();
     }
 
@@ -53,7 +54,7 @@ public class TodoApp {
     //TELLER APP CITATION
     // MODIFIES: this
     // EFFECTS: processes user input
-    private void runTodoApp() {
+    private void runTodoApp() throws EmptyException {
         init();
         boolean keepGoing = true;
         String command = null;
@@ -80,7 +81,7 @@ public class TodoApp {
     //TELLER APP CITATION
     // MODIFIES: this
     // EFFECTS: processes user command
-    private void processCommand(String command) {
+    private void processCommand(String command) throws EmptyException {
         if (command.equals("a")) {
             doAddTask();
         } else if (command.equals("r")) {
@@ -121,7 +122,7 @@ public class TodoApp {
 
     // MODIFIES: this
     //  EFFECTS: Removes desired task base on selection
-    private void doRemoveTask() {
+    private void doRemoveTask() throws EmptyException {
         input = new Scanner(System.in);
 
         System.out.println("Which task do you want to remove?");

@@ -1,6 +1,8 @@
 package model;
 
 
+import exception.EmptyException;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -31,7 +33,10 @@ public class TodoList implements java.io.Serializable {
 
     // MODIFES : this
     // EFFECTS: removes task to a Todo list
-    public void deleteTask(String str) {
+    public void deleteTask(String str) throws EmptyException {
+        exception();
+
+
         for (int i = 0; i < taskList.size(); i++) {
             if (str.equals(taskList.get(i).getDescription())) {
                 taskList.remove(i);
@@ -41,9 +46,11 @@ public class TodoList implements java.io.Serializable {
         // stub
     }
 
-
-
-
+    private void exception() throws EmptyException {
+        if (taskList.size() == 0) {
+            throw new EmptyException();
+        }
+    }
 
 
     // EFFECTS: To String

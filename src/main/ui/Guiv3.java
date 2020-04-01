@@ -1,6 +1,7 @@
 package ui;
 
 
+import exception.AddedDuplicateException;
 import model.Task;
 import model.TodoList;
 import sun.applet.resources.MsgAppletViewer_es;
@@ -202,13 +203,15 @@ public class Guiv3 extends JPanel implements ListSelectionListener {
             PlayMusic pl = new PlayMusic();
             pl.playMusic("Music\\\\y.wav");
             //User didn't type in a unique name...
-            if (name.equals("") || alreadyInList(name)) {
-                Toolkit.getDefaultToolkit().beep();
-                employeeName.requestFocusInWindow();
-                employeeName.selectAll();
-                return;
-            }
 
+            if (name.equals("") || alreadyInList(name)) {
+                try {
+                    exception();
+                } catch (AddedDuplicateException ex) {
+                    System.out.println("sorry no duplicates");
+                    return;
+                }
+            }
             int index = list.getSelectedIndex(); //get selected index
             if (index == -1) { //no selection, so insert at beginning
                 index = 0;
@@ -229,6 +232,15 @@ public class Guiv3 extends JPanel implements ListSelectionListener {
             //Select the new item and make it visible.
             list.setSelectedIndex(index);
             list.ensureIndexIsVisible(index);
+        }
+
+        private void exception() throws AddedDuplicateException {
+
+            Toolkit.getDefaultToolkit().beep();
+            employeeName.requestFocusInWindow();
+            employeeName.selectAll();
+            throw new AddedDuplicateException();
+
         }
 
         //This method tests for string equality. You could certainly

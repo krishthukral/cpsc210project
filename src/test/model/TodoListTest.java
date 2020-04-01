@@ -1,5 +1,6 @@
 package model;
 
+import exception.EmptyException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -36,7 +37,7 @@ public class TodoListTest {
     }
 
     @Test
-    public void testDeleteTask() {
+    public void testDeleteTask() throws EmptyException {
         lists.addTask(exercise.getDescription());
         lists.deleteTask(exercise.getDescription());
         assertEquals(0, lists.sizeOfList());
@@ -75,6 +76,30 @@ public class TodoListTest {
         lists.markComplete(artProject.getDescription());
 
         assertEquals(true, lists.getTask(2).getIsCompleted());
+
+    }
+
+    @Test
+    public void testNoException() {
+        try {
+            lists.addTask(exercise.getDescription());
+            lists.addTask(homework.getDescription());
+            lists.deleteTask(exercise.getDescription());
+        } catch (EmptyException e) {
+            fail("not supposed to be");
+        }
+    }
+
+    @Test
+    public void testException() {
+        try {
+            lists.addTask(homework.getDescription());
+            lists.deleteTask(homework.getDescription());
+            lists.deleteTask(homework.getDescription());
+            fail("not");
+        } catch (EmptyException e) {
+            System.out.println("its all good man");
+        }
 
     }
 }
