@@ -14,13 +14,15 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
+
 // This class is mainly for interactions with the user
 public class TodoApp {
-    private TodoList list;
+    protected TodoList list;
     private String first;
     private String last;
     private String savedTask;
     private Scanner input;
+    private DisplayConsolePanel displayConsolePanel;
 
 
     public TodoApp() throws EmptyException {
@@ -29,8 +31,8 @@ public class TodoApp {
 
     // MODIFIES: this
     // EFFECTS: initializes accounts
-    private void init() {
-        Guiv3 g = new Guiv3();
+    protected void init() {
+
 
         list = new TodoList();
 
@@ -72,15 +74,13 @@ public class TodoApp {
             if (command.equals("q")) {
                 keepGoing = false;
             } else {
+
                 processCommand(command);
             }
         }
         System.out.println("\nGOODBYE");
     }
 
-    //TELLER APP CITATION
-    // MODIFIES: this
-    // EFFECTS: processes user command
     private void processCommand(String command) throws EmptyException {
         if (command.equals("a")) {
             doAddTask();
@@ -96,12 +96,25 @@ public class TodoApp {
             doSave();
         } else if (command.equals("c")) {
             doClear();
+        } else if (command.equals("create")) {
+            doReset();
         } else {
             System.out.println("Selection not valid...");
         }
     }
 
-    private void doClear() {
+    private void doReset() {
+        CreateApp r = null;
+        try {
+            r = new CreateApp();
+        } catch (EmptyException e) {
+            e.printStackTrace();
+        }
+        r.doClear();
+    }
+
+
+    protected void doClear() throws EmptyException {
         init();
     }
 
@@ -110,7 +123,7 @@ public class TodoApp {
     //input = new Scanner(System.in);
 
     //EFFECTS: Adds task to array
-    private void doAddTask() {
+    protected void doAddTask() {
         input = new Scanner(System.in);
 
         System.out.println("What is your task's name?");
@@ -122,7 +135,7 @@ public class TodoApp {
 
     // MODIFIES: this
     //  EFFECTS: Removes desired task base on selection
-    private void doRemoveTask() throws EmptyException {
+    protected void doRemoveTask() throws EmptyException {
         input = new Scanner(System.in);
 
         System.out.println("Which task do you want to remove?");
@@ -132,14 +145,14 @@ public class TodoApp {
 
 
     // EFFECTS: Lets user see the entire todo list
-    private void doViewList() {
+    protected void doViewList() {
         for (int i = 0; i < list.sizeOfList(); i++) {
             System.out.println(i + 1 + ". " + list.getTask(i).getDescription());
         }
     }
 
     // EFFECTS: Lets user able to see the amount of items on todo list
-    private void doCount() {
+    protected void doCount() {
         int count = 0;
         for (int i = 0; i < list.sizeOfList(); i++) {
             count++;
@@ -147,18 +160,18 @@ public class TodoApp {
         System.out.println(count);
     }
 
-    //EFFECTS: ends up marking and able to see item in another list of completed items
-    private void doMarkComplete() {
-        input = new Scanner(System.in);
-
-        System.out.println("Which task do you want to mark complete?");
-        String str = input.next();
-
-    }
+//    //EFFECTS: ends up marking and able to see item in another list of completed items
+//    private void doMarkComplete() {
+//        input = new Scanner(System.in);
+//
+//        System.out.println("Which task do you want to mark complete?");
+//        String str = input.next();
+//
+//    }
 
 
     // EFFECTS: saves state of todolist to a file
-    private void doSave() {
+    protected void doSave() {
         try {
             FileOutputStream fileOut =
                     new FileOutputStream("./data/myFile.txt");
@@ -216,6 +229,7 @@ public class TodoApp {
         System.out.println("\tp -> print to screen");
         System.out.println("\ts -> save todolist");
         System.out.println("\tc -> clear todolist");
+        System.out.println("\tcreate -> new instance of app within application");
         System.out.println("\tq -> quit");
 
     }

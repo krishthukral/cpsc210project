@@ -56,7 +56,15 @@ You can save all newly added items to the save file
 When the user loads the file 
 
 
-## Task 2 Phase 4
+## Phase 4: Task 2
 ROBUST:
 Added exception to the deletetask method so it handles the case if the user removes something when it is already
 empty in the todoList in the model package. I made two tests that pass called testException and testNoException.
+
+##Phase 4: Task 3 
+For one of the fixes I ended up creating a new user story which is typing create creates new instance in the application
+while already running as my Application.
+Then I wanted to use this to increase the cohesion by creating a new class to help divide the behavior and is able to be
+better read by another developer in case they want to modify it in the future. 
+1. Fixed the gui by creating some more classes so the code better adheres to the single responsibility principle.
+

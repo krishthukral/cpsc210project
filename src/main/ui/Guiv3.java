@@ -20,17 +20,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 
+import ui.listeners.*;
 import sun.audio.*;
 
 // This class makes the entire GUI for the TODO App
 public class Guiv3 extends JPanel implements ListSelectionListener {
-    private JList list;
-    private DefaultListModel listModel;
+    public JList list;
+    public DefaultListModel listModel;
     private TodoList todoList;
-
+    private FireListener fireListener;
     private static final String hireString = "Add";
     private static final String fireString = "Remove";
-    private JButton fireButton;
+    public JButton fireButton;
     private JButton clearButton;
     private JButton saveButton;
     private JTextField employeeName;
@@ -76,6 +77,7 @@ public class Guiv3 extends JPanel implements ListSelectionListener {
         hireButton.addActionListener(hireListener);
         hireButton.setEnabled(false);
 
+        fireListener = new FireListener();
         fireButton = new JButton(fireString);
         fireButton.setActionCommand(fireString);
         fireButton.addActionListener(new FireListener());
@@ -105,32 +107,6 @@ public class Guiv3 extends JPanel implements ListSelectionListener {
         add(buttonPane, BorderLayout.PAGE_END);
     }
 
-    //EFFECTS: This actionlistener is removes a task from a list
-    class FireListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            //This method can be called only if
-            //there's a valid selection
-            //so go ahead and remove whatever's selected.
-            int index = list.getSelectedIndex();
-            listModel.remove(index);
-            PlayMusic p = new PlayMusic();
-            p.playMusic("Music\\\\x.wav");
-            int size = listModel.getSize();
-
-            if (size == 0) { //Nobody's left, disable firing.
-                fireButton.setEnabled(false);
-
-            } else { //Select an index.
-                if (index == listModel.getSize()) {
-                    //removed item in last position
-                    index--;
-                }
-
-                list.setSelectedIndex(index);
-                list.ensureIndexIsVisible(index);
-            }
-        }
-    }
 
     //EFFECTS: This clears the list when clicked
     class ClearListener implements ActionListener {
@@ -158,6 +134,36 @@ public class Guiv3 extends JPanel implements ListSelectionListener {
                 listModel.remove(0);
             }
 
+        }
+    }
+
+    class FireListener implements ActionListener {
+
+
+        public void actionPerformed(ActionEvent e) {
+
+
+            //This method can be called only if
+            //there's a valid selection
+            //so go ahead and remove whatever's selected.
+            int index = list.getSelectedIndex();
+            listModel.remove(index);
+            PlayMusic p = new PlayMusic();
+            p.playMusic("Music\\\\x.wav");
+            int size = listModel.getSize();
+
+            if (size == 0) { //Nobody's left, disable firing.
+                fireButton.setEnabled(false);
+
+            } else { //Select an index.
+                if (index == listModel.getSize()) {
+                    //removed item in last position
+                    index--;
+                }
+
+                list.setSelectedIndex(index);
+                list.ensureIndexIsVisible(index);
+            }
         }
     }
 

@@ -1,0 +1,15 @@
+package ui;
+
+import exception.EmptyException;
+import model.TodoList;
+
+public class ResetApplication extends TodoApp {
+    public ResetApplication() throws EmptyException {
+    }
+
+
+    protected void doClear() {
+
+        init();
+    }
+}
