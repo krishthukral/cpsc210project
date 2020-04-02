@@ -2,17 +2,9 @@ package ui;
 
 import exception.EmptyException;
 import model.*;
-import ui.Guiv3;
 
 import java.io.*;
-import java.util.*;
 import java.util.Scanner;
-import java.util.List;
-import java.util.Scanner;
-import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-import java.awt.*;
-import java.awt.event.ActionListener;
 
 
 // This class is mainly for interactions with the user

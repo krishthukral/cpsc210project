@@ -1,11 +1,11 @@
-package ui.listeners;
+package ui.graphics.listeners;
 
-import ui.PlayMusic;
+import ui.graphics.PlayMusic;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import ui.Guiv3;
+import ui.graphics.Guiv3;
 
 //EFFECTS: This actionlistener is removes a task from a list
 

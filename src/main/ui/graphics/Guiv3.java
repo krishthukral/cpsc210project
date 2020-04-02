@@ -1,16 +1,11 @@
-package ui;
+package ui.graphics;
 
 
 import exception.AddedDuplicateException;
 import model.Task;
 import model.TodoList;
-import sun.applet.resources.MsgAppletViewer_es;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.event.ListSelectionEvent;
@@ -19,9 +14,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
-
-import ui.listeners.*;
-import sun.audio.*;
 
 // This class makes the entire GUI for the TODO App
 public class Guiv3 extends JPanel implements ListSelectionListener {

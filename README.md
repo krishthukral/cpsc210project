@@ -71,4 +71,5 @@ better read by another developer in case they want to modify it in the future.
 2. Fixed the gui by creating some more classes so the code better adheres to the single responsibility 
 principle. So I increased the Cohesion by making all the classes into a package into the listeners package to increase
 cohesion and make it more readable so not everything is one long class and so its not as hard to read.
+3.I also grouped a lot of things from exceptions to graphics and console ui separated so they are more readable
 

@@ -1,4 +1,4 @@
-package ui;
+package ui.graphics;
 
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;

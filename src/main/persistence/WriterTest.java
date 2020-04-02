@@ -79,7 +79,7 @@ class WriterTest {
             return;
         } catch (ClassNotFoundException c) {
             System.out.println("Task class not found");
-            
+
             return;
         }
     }
