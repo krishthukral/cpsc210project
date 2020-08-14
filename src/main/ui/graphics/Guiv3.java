@@ -30,9 +30,17 @@ public class Guiv3 extends JPanel implements ListSelectionListener {
     private JButton hireButton;
     private HireListener hireListener;
 
+
     //EFFECTS: Constructs the entire gui
     public Guiv3() {
+
         super(new BorderLayout());
+        init();
+
+    }
+
+    public void init() {
+
         todoList = new TodoList();
         listModel = new DefaultListModel();
         doLoad();

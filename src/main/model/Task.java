@@ -5,7 +5,7 @@ import java.io.Serializable;
 // This is a single item that must be completed that is on the todolist
 public class Task implements Serializable {
     private String description;
-    //private int deadline;
+   // private int deadline;
     private boolean isCompleted;
 
     public Task(String description) {

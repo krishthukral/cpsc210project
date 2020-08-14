@@ -33,6 +33,7 @@ public class TodoListTest {
     @Test
     public void testAddTask() {
         lists.addTask(exercise.getDescription());
+       // lists.addTask(homework.getDescription());
         assertEquals(1, lists.sizeOfList());
     }
 
